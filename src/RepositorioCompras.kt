@@ -5,15 +5,21 @@ class RepositorioCompras {
         compras.add(compra)
     }
 
+    fun agregarCompra(cliente: Cliente, dia: Int, monto: Double) {
+        compras.add(Compra(cliente, dia, monto))
+    }
 
-    fun domicilios() {
+    fun agregarCompra(nombre: String, calle: String, numero: Int, dia: Int, monto: Double) {
+        val domicilio= Domicilio(calle, numero)
+        val cliente= Cliente(nombre, domicilio)
+        compras.add(Compra(cliente, dia, monto))
+    }
+
+    fun domicilios(): MutableSet<Domicilio> {
         val setCompras: MutableSet<Domicilio> = mutableSetOf()
-        for ((i, compra) in compras.withIndex()) {
+        for (compra in compras) {
             setCompras.add(compra.cliente.domicilio)
         }
-
-        for ((i, domicilio) in setCompras.withIndex()) {
-            println("Domicilio ${i + 1}: ${domicilio.dirCompleta()}")
-        }
+        return setCompras
     }
 }

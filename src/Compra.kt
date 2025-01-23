@@ -5,6 +5,4 @@
  * @param monto monto de la compra
  * @constructor Crea una compra con cliente, dia y monto
  */
-data class Compra(val cliente: Cliente, val dia: Int, val monto: Double) {
-
-}
+data class Compra(val cliente: Cliente, val dia: Int, val monto: Double)

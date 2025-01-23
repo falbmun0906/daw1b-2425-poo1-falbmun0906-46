@@ -17,5 +17,10 @@ fun main() {
 
         repositorioCompras.agregarCompra(Compra(cliente, diaMes, monto))
     }
-    repositorioCompras.domicilios()
+
+    val setDomicilios = repositorioCompras.domicilios()
+
+    for ((i, domicilio) in setDomicilios.withIndex()) {
+        println("Domicilio ${i + 1}: ${domicilio.dirCompleta()}")
+    }
 }
